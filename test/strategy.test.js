@@ -2,33 +2,33 @@
 /* jshint expr: true */
 
 var chai = require('chai')
-  , FacebookStrategy = require('../lib/strategy');
+  , FirebaseStrategy = require('../lib/strategy');
 
 
 describe('Strategy', function() {
     
   describe('constructed', function() {
-    var strategy = new FacebookStrategy({
+    var strategy = new FirebaseStrategy({
         clientID: 'ABC123',
         clientSecret: 'secret'
       },
       function() {});
     
-    it('should be named facebook', function() {
-      expect(strategy.name).to.equal('facebook');
+    it('should be named Firebase', function() {
+      expect(strategy.name).to.equal('Firebase');
     });
   })
   
   describe('constructed with undefined options', function() {
     it('should throw', function() {
       expect(function() {
-        var strategy = new FacebookStrategy(undefined, function(){});
+        var strategy = new FirebaseStrategy(undefined, function(){});
       }).to.throw(Error);
     });
   })
 
   describe('authorization request with display parameter', function() {
-    var strategy = new FacebookStrategy({
+    var strategy = new FirebaseStrategy({
         clientID: 'ABC123',
         clientSecret: 'secret'
       }, function() {});
@@ -48,12 +48,12 @@ describe('Strategy', function() {
     });
 
     it('should be redirected', function() {
-      expect(url).to.equal('https://www.facebook.com/dialog/oauth?display=mobile&response_type=code&client_id=ABC123');
+      expect(url).to.equal('https://www.Firebase.com/dialog/oauth?display=mobile&response_type=code&client_id=ABC123');
     });
   });
   
   describe('authorization request with reauthorization parameters', function() {
-    var strategy = new FacebookStrategy({
+    var strategy = new FirebaseStrategy({
         clientID: 'ABC123',
         clientSecret: 'secret'
       }, function() {});
@@ -73,12 +73,12 @@ describe('Strategy', function() {
     });
 
     it('should be redirected', function() {
-      expect(url).to.equal('https://www.facebook.com/dialog/oauth?auth_type=reauthenticate&auth_nonce=foo123&response_type=code&client_id=ABC123');
+      expect(url).to.equal('https://www.Firebase.com/dialog/oauth?auth_type=reauthenticate&auth_nonce=foo123&response_type=code&client_id=ABC123');
     });
   });
   
   describe('failure caused by user denying request', function() {
-    var strategy = new FacebookStrategy({
+    var strategy = new FirebaseStrategy({
         clientID: 'ABC123',
         clientSecret: 'secret'
       }, function() {});
@@ -109,7 +109,7 @@ describe('Strategy', function() {
   });
   
   describe('error caused by app being in sandbox mode', function() {
-    var strategy = new FacebookStrategy({
+    var strategy = new FirebaseStrategy({
         clientID: 'ABC123',
         clientSecret: 'secret'
       }, function() {});
@@ -126,21 +126,21 @@ describe('Strategy', function() {
         .req(function(req) {
           req.query = {};
           req.query.error_code = '901';
-          req.query.error_message = 'This app is in sandbox mode.  Edit the app configuration at http://developers.facebook.com/apps to make the app publicly visible.';
+          req.query.error_message = 'This app is in sandbox mode.  Edit the app configuration at http://developers.Firebase.com/apps to make the app publicly visible.';
         })
         .authenticate();
     });
   
     it('should error', function() {
-      expect(err.constructor.name).to.equal('FacebookAuthorizationError');
-      expect(err.message).to.equal('This app is in sandbox mode.  Edit the app configuration at http://developers.facebook.com/apps to make the app publicly visible.');
+      expect(err.constructor.name).to.equal('FirebaseAuthorizationError');
+      expect(err.message).to.equal('This app is in sandbox mode.  Edit the app configuration at http://developers.Firebase.com/apps to make the app publicly visible.');
       expect(err.code).to.equal(901);
       expect(err.status).to.equal(500);
     });
   });
   
   describe('error caused by invalid code sent to token endpoint (note: error format does not conform to OAuth 2.0 specification)', function() {
-    var strategy = new FacebookStrategy({
+    var strategy = new FirebaseStrategy({
         clientID: 'ABC123',
         clientSecret: 'secret'
       }, function() {});
@@ -166,7 +166,7 @@ describe('Strategy', function() {
     });
 
     it('should error', function() {
-      expect(err.constructor.name).to.equal('FacebookTokenError');
+      expect(err.constructor.name).to.equal('FirebaseTokenError');
       expect(err.message).to.equal('Invalid verification code format.');
       expect(err.type).to.equal('OAuthException');
       expect(err.code).to.equal(100);
@@ -175,8 +175,8 @@ describe('Strategy', function() {
     });
   }); // error caused by invalid code sent to token endpoint
   
-  describe('error caused by invalid code sent to token endpoint (note: error format conforms to OAuth 2.0 specification, though this is not the current behavior of the Facebook implementation)', function() {
-    var strategy = new FacebookStrategy({
+  describe('error caused by invalid code sent to token endpoint (note: error format conforms to OAuth 2.0 specification, though this is not the current behavior of the Firebase implementation)', function() {
+    var strategy = new FirebaseStrategy({
         clientID: 'ABC123',
         clientSecret: 'secret'
       }, function() {});

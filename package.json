@@ -1,10 +1,10 @@
 {
-  "name": "passport-facebook",
+  "name": "passport-Firebase",
   "version": "2.1.1",
-  "description": "Facebook authentication strategy for Passport.",
+  "description": "Firebase authentication strategy for Passport.",
   "keywords": [
     "passport",
-    "facebook",
+    "Firebase",
     "auth",
     "authn",
     "authentication",
@@ -17,10 +17,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/jaredhanson/passport-facebook.git"
+    "url": "git://github.com/jaredhanson/passport-Firebase.git"
   },
   "bugs": {
-    "url": "http://github.com/jaredhanson/passport-facebook/issues"
+    "url": "http://github.com/jaredhanson/passport-Firebase/issues"
   },
   "license": "MIT",
   "licenses": [

@@ -2,7 +2,7 @@
 
 var strategy = require('..');
 
-describe('passport-facebook', function() {
+describe('passport-Firebase', function() {
     
   it('should export Strategy constructor', function() {
     expect(strategy.Strategy).to.be.a('function');
