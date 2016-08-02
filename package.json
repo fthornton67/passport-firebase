@@ -1,6 +1,6 @@
 {
   "name": "passport-firebase",
-  "version": "2.1.1",
+  "version": "0.0.1",
   "description": "Firebase authentication strategy for Passport.",
   "keywords": [
     "passport",
@@ -11,16 +11,16 @@
     "identity"
   ],
   "author": {
-    "name": "Jared Hanson",
-    "email": "jaredhanson@gmail.com",
-    "url": "http://www.jaredhanson.net/"
+    "name": "Fredrick Thornton",
+    "email": "fthornton67@gmail.com",
+    "url": "http://www.phitr.us/"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/jaredhanson/passport-Firebase.git"
+    "url": "git://github.com/fthornton67/passport-firebase.git"
   },
   "bugs": {
-    "url": "http://github.com/jaredhanson/passport-Firebase/issues"
+    "url": "http://github.com/fthornton67/passport-firebase/issues"
   },
   "license": "MIT",
   "licenses": [
