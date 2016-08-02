@@ -1,5 +1,5 @@
 {
-  "name": "passport-Firebase",
+  "name": "passport-firebase",
   "version": "2.1.1",
   "description": "Firebase authentication strategy for Passport.",
   "keywords": [
